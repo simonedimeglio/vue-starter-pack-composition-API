@@ -64,7 +64,11 @@ Tuttavia, ci sono alcune differenze chiave:
 
 1.  **Reattività:**
     
-    -   Quando usiamo `ref` in Vue, ottieniamo automaticamente la reattività. Ciò significa che se il valore associato alla reference cambia, le parti del nostro componente che dipendono da quel valore vengono automaticamente aggiornate. In vanilla JavaScript, dovremmo gestire manualmente gli aggiornamenti del DOM.
+    -   Quando usiamo `ref` in Vue, ottieniamo automaticamente la reattività. Ciò significa che se il valore associato alla reference cambia, le parti del nostro componente che dipendono da quel valore vengono automaticamente aggiornate. In vanilla JavaScript, dovremmo gestire manualmente gli aggiornamenti del DOM. Vediamo un bell'esempio di reattività tramite **ref**:
+  
+<img width="671" alt="4" src="https://github.com/simonedimeglio/vue-blog-composition-API/assets/78272736/b72b5a32-373e-44f9-b1eb-7c645a5ba709">
+
+    
 2.  **Integrazione con Vue:**
     
     -   Utilizzare `ref` è parte integrante della Composition API di Vue. Ci consente di organizzare il codice in modo più modulare e comprensibile, specialmente in progetti più complessi. Invece, l'uso diretto di `getElementById` è una pratica comune in JavaScript puro, ma potrebbe richiedere un codice più verboso e meno organizzato.
