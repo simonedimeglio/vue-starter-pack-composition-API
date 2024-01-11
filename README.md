@@ -1,8 +1,4 @@
-# Blog in Vue3 (Composition API & Router)
-
-Repo relativa alla creazione di un blog in Vue3 (Composition API, Router) utilizzata per le Academy Frontend dove trattiamo VueJs.
-
-## Teoria relativa a Composition API 
+# Teoria relativa a Composition API 
 
 Prendiamo in analisi questo componente Vue relativamente alla parte dello**`<script>`:** 
 
