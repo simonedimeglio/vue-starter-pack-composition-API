@@ -73,6 +73,7 @@ Tuttavia, ci sono alcune differenze chiave:
     
     -   Utilizzare `ref` è parte integrante della Composition API di Vue. Ci consente di organizzare il codice in modo più modulare e comprensibile, specialmente in progetti più complessi. Invece, l'uso diretto di `getElementById` è una pratica comune in JavaScript puro, ma potrebbe richiedere un codice più verboso e meno organizzato.
   
+<br/>
 
 ## Ref VS Reactive
 
@@ -113,4 +114,51 @@ Esempio:
 
 In breve, `ref` è utile per valori singoli, mentre `reactive` è più adatto per oggetti complessi. Quando lavoriamo con `ref`, dobbiamo sempre accedere al valore tramite `.value`, mentre con `reactive`, possiamo accedere alle proprietà direttamente. Entrambi sono utili, ma la scelta dipende dal contesto e dalle esigenze del nostro componente.
 
+<br/>
+
+## Computed in Composition API
+
+In Composition API di Vue 3, `computed` è una funzione che ti consente di creare dati derivati in modo reattivo basati su altri reattivi. È una funzione che accetta una funzione di calcolo e restituisce un oggetto reattivo, il cui valore dipenderà dai reattivi che hai utilizzato all'interno della funzione di calcolo.
+
+Ecco un esempio di come utilizzare `computed` nella Composition API:
+
+<img width="481" alt="5" src="https://github.com/simonedimeglio/vue-blog-composition-API/assets/78272736/22b1b53a-2d5b-4371-948f-8d1559235885">
+
+In questo esempio, `squaredValue` è una computed property che dipende da `baseValue`. Quando `baseValue` cambia, `squaredValue` verrà automaticamente aggiornato in modo reattivo in base alla funzione di calcolo fornita.
+
+Le computed properties sono particolarmente utili per calcolare valori basati su dati reattivi senza doverli esplicitamente monitorare o aggiornare manualmente ogni volta che i dati di base cambiano.
+
+<br/>
+
+## watchEffect & watch
+
+### `watchEffect`
+
+`watchEffect` è una funzione reattiva che accetta una funzione di effetto. All'interno di questa funzione, vengono automaticamente tracciati tutti i reattivi utilizzati, e l'effetto viene eseguito ogni volta che uno di questi reattivi cambia. Non è necessario specificare esplicitamente quali reattivi monitorare, rendendolo molto comodo per effetti automatici basati su dati reattivi.
+
+    import { ref, watchEffect } from 'vue';
+    
+    const counter = ref(0);
+    
+    // Definizione dell'effetto con watchEffect
+    watchEffect(()=> {
+	    console.log('Valore contatore: ${counter.value}');
+	});
+
+
+
+### `watch`
+
+`watch` è più esplicito rispetto a `watchEffect`. Accetta due argomenti: il primo è la dipendenza (o un array di dipendenze), e il secondo è una funzione di callback che verrà eseguita quando la dipendenza cambia. Questo offre un maggiore controllo sulla gestione delle dipendenze e può essere utile quando è necessario eseguire azioni specifiche solo quando determinate dipendenze cambiano.
+
+    import { ref, watch } from 'vue';
+
+    const counter = ref(0);
+
+    // Definizione dell'effetto con watch
+    watch(counter, (nuovoValore, vecchioValore) => {
+      console.log(`Valore del contatore cambiato da ${vecchioValore} a ${nuovoValore}`);
+    });
+
+In generale, `watchEffect` è utile quando si vuole un'approccio più automatico e "reattivo", mentre `watch` è più indicato quando si desidera un maggiore controllo sulla gestione delle dipendenze e quando è necessario eseguire azioni specifiche solo in determinate circostanze.
 
