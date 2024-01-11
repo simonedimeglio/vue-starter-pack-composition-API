@@ -72,4 +72,45 @@ Tuttavia, ci sono alcune differenze chiave:
 2.  **Integrazione con Vue:**
     
     -   Utilizzare `ref` è parte integrante della Composition API di Vue. Ci consente di organizzare il codice in modo più modulare e comprensibile, specialmente in progetti più complessi. Invece, l'uso diretto di `getElementById` è una pratica comune in JavaScript puro, ma potrebbe richiedere un codice più verboso e meno organizzato.
+  
+
+## Ref VS Reactive
+
+Introduciamo il concetto di **reactive** analizzando le differenze con **ref**: 
+
+**`ref`**: Si utilizza per rendere reattivo un valore singolo, come una variabile. L'oggetto `ref` incapsula il valore e fornisce un oggetto con una proprietà `.value`. Per ottenere o impostare il valore, devi accedere a `.value`.
+
+Esempio:
+
+    import { ref } from 'vue';
+    
+    const nome = ref('Simone');
+    
+    // Accesso al valore
+    console.log(nome.value); // Output: Simone
+    
+    // Modifica del valore
+    nome.value = 'Nuovo nome';
+
+**`reactive`**: Si utilizza per rendere reattivo un oggetto intero. Tutte le proprietà di un oggetto reattivo saranno automaticamente reattive, il che significa che qualsiasi modifica alle proprietà verrà rilevata e attiverà l'aggiornamento del componente.
+
+Esempio: 
+
+    import { reactive } from 'vue';
+    
+    const persona = reactive({
+	    nome: 'Simone',
+	    età: 28
+	});
+	
+	// Accesso alle proprietà
+	console.log(persona.nome); // Simone
+	console.log(persona.età) // 28
+	
+	// Modifica le proprietà
+	persona.nome = 'Nuovo nome';
+	persona.età = 29;
+
+In breve, `ref` è utile per valori singoli, mentre `reactive` è più adatto per oggetti complessi. Quando lavoriamo con `ref`, dobbiamo sempre accedere al valore tramite `.value`, mentre con `reactive`, possiamo accedere alle proprietà direttamente. Entrambi sono utili, ma la scelta dipende dal contesto e dalle esigenze del nostro componente.
+
 
