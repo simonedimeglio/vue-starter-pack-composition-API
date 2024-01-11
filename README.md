@@ -41,7 +41,7 @@ La funzione `ref` in Vue 3 è un modo per dichiarare una "reference reattiva". O
 
 1.  **Reference Reattiva:**
     
-    -   Una reference reattiva è un'astrazione fornita da Vue per rendere un valore reattivo nel sistema di reattività di Vue. Ciò significa che se il valore cambia, qualsiasi parte del tuo componente che dipende da questo valore verrà automaticamente aggiornata.
+    -   Una reference reattiva è un'astrazione fornita da Vue per rendere un valore reattivo nel sistema di reattività di Vue. Ciò significa che se il valore cambia, qualsiasi parte del tuo componente che dipende da questo valore verrà automaticamente aggiornata. (Cosa che succedeva nelle variabili che inserivamo sotto data()..)
     
 2.  **Utilizzo di `ref`:**
     
